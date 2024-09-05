@@ -37,6 +37,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css",
+              "src/override-bootstrap.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -67,6 +69,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "ssl": true,
+            "sslCert": "./ssl/localhost.pem",
+            "sslKey": "./ssl/localhost-key.pem"
+          },
           "configurations": {
             "production": {
               "buildTarget": "ATech:build:production"
@@ -104,5 +111,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
